@@ -1,0 +1,43 @@
+V3 21
+FL E:/GitHub/PCFG/pcfg/accumulator.vhd 2016/11/21.23:13:58 P.20131013
+EN work/accumulator 0 FL E:/GitHub/PCFG/pcfg/accumulator.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/accumulator/Behavioral 0 \
+      FL E:/GitHub/PCFG/pcfg/accumulator.vhd EN work/accumulator 0
+FL E:/GitHub/PCFG/pcfg/comparator.vhd 2016/11/21.23:13:17 P.20131013
+EN work/comparator 1479737605 FL E:/GitHub/PCFG/pcfg/comparator.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/comparator/Behavioral 1479737606 \
+      FL E:/GitHub/PCFG/pcfg/comparator.vhd EN work/comparator 1479737605
+FL E:/GitHub/PCFG/pcfg/fullAdder.vhd 2016/11/21.18:23:08 P.20131013
+EN work/fullAdder 1479737554 FL E:/GitHub/PCFG/pcfg/fullAdder.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/fullAdder/Behavioral 1479737555 \
+      FL E:/GitHub/PCFG/pcfg/fullAdder.vhd EN work/fullAdder 1479737554
+FL E:/GitHub/PCFG/pcfg/halfAdder.vhd 2016/11/21.18:14:10 P.20131013
+EN work/halfAdder 1479737535 FL E:/GitHub/PCFG/pcfg/halfAdder.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/halfAdder/Behavioral 1479737536 \
+      FL E:/GitHub/PCFG/pcfg/halfAdder.vhd EN work/halfAdder 1479737535
+FL E:/GitHub/PCFG/pcfg/register8Bit.vhd 2016/11/21.23:10:04 P.20131013
+EN work/register8Bit 1479737412 FL E:/GitHub/PCFG/pcfg/register8Bit.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179 PB ieee/NUMERIC_STD 1381692181
+AR work/register8Bit/Behavioral 1479737413 \
+      FL E:/GitHub/PCFG/pcfg/register8Bit.vhd EN work/register8Bit 1479737412
+FL E:/GitHub/PCFG/pcfg/shiftRegister8Bit.vhd 2016/11/21.23:09:13 P.20131013
+EN work/shiftRegister8Bit 1479737363 FL E:/GitHub/PCFG/pcfg/shiftRegister8Bit.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179 PB ieee/NUMERIC_STD 1381692181
+AR work/shiftRegister8Bit/Behavioral 1479737364 \
+      FL E:/GitHub/PCFG/pcfg/shiftRegister8Bit.vhd EN work/shiftRegister8Bit 1479737363
+FL E:/GitHub/PCFG/pcfg/twosComp.vhd 2016/11/21.23:11:24 P.20131013
+EN work/twosComp 1479737493 FL E:/GitHub/PCFG/pcfg/twosComp.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/twosComp/Behavioral 1479737494 \
+      FL E:/GitHub/PCFG/pcfg/twosComp.vhd EN work/twosComp 1479737493

@@ -1,0 +1,39 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to E:/GitHub/PCFG/pcfg/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.86 secs
+ 
+--> Parameter xsthdpdir set to E:/GitHub/PCFG/pcfg/xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.87 secs
+ 
+--> WARNING:Xst:3164 - Option "-debug" found multiple times in the command line. Only the first occurence is considered.
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "E:/GitHub/PCFG/pcfg/accumulator.vhd" in Library work.
+Entity <accumulator> compiled.
+ERROR:HDLParsers:808 - "E:/GitHub/PCFG/pcfg/accumulator.vhd" Line 78. = can not have such operands in this context.
+ERROR:HDLParsers:164 - "E:/GitHub/PCFG/pcfg/accumulator.vhd" Line 79. parse error, unexpected PORT, expecting OPENPAR or TICK or LSQBRACK
+WARNING:HDLParsers:901 - "E:/GitHub/PCFG/pcfg/accumulator.vhd" Line 79. Label HA1 is ignored.
+ERROR:HDLParsers:164 - "E:/GitHub/PCFG/pcfg/accumulator.vhd" Line 81. parse error, unexpected PORT, expecting OPENPAR or TICK or LSQBRACK
+WARNING:HDLParsers:901 - "E:/GitHub/PCFG/pcfg/accumulator.vhd" Line 81. Label FA1 is ignored.
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 1.11 secs
+ 
+--> 
+
+Total memory usage is 204084 kilobytes
+
+Number of errors   :    3 (   0 filtered)
+Number of warnings :    3 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

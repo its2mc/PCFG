@@ -1,0 +1,5 @@
+set -tmpdir "E:/GitHub/PCFG/pcfg/xst/projnav.tmp"
+set -xsthdpdir "E:/GitHub/PCFG/pcfg/xst"
+elaborate
+-ifn shiftRegister8Bit.prj
+-ifmt mixed

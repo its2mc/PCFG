@@ -38,7 +38,7 @@ entity comparator is
 end comparator;
 
 architecture Behavioral of comparator is
-	variable temp : std_logic_vector (7 downto 0):= "00000000";
+	shared variable temp : std_logic_vector (7 downto 0):= "00000000";
 	
 begin
 
@@ -48,7 +48,7 @@ begin
 		temp(i) := comp and val(i);
 	end loop;
 	
-	result<= temp;
+	res<= temp;
 end process;
 
 end Behavioral;

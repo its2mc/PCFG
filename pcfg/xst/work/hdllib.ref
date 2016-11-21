@@ -1,0 +1,13 @@
+AR twoscomp behavioral E:/GitHub/PCFG/pcfg/twosComp.vhd sub00/vhpl05 1479737494
+AR shiftregister8bit behavioral E:/GitHub/PCFG/pcfg/shiftRegister8Bit.vhd sub00/vhpl01 1479737364
+EN accumulator NULL E:/GitHub/PCFG/pcfg/accumulator.vhd sub00/vhpl12 1479737999
+EN halfadder NULL E:/GitHub/PCFG/pcfg/halfAdder.vhd sub00/vhpl06 1479737535
+EN register8bit NULL E:/GitHub/PCFG/pcfg/register8Bit.vhd sub00/vhpl02 1479737412
+EN fulladder NULL E:/GitHub/PCFG/pcfg/fullAdder.vhd sub00/vhpl08 1479737554
+EN shiftregister8bit NULL E:/GitHub/PCFG/pcfg/shiftRegister8Bit.vhd sub00/vhpl00 1479737363
+EN twoscomp NULL E:/GitHub/PCFG/pcfg/twosComp.vhd sub00/vhpl04 1479737493
+AR register8bit behavioral E:/GitHub/PCFG/pcfg/register8Bit.vhd sub00/vhpl03 1479737413
+EN comparator NULL E:/GitHub/PCFG/pcfg/comparator.vhd sub00/vhpl10 1479737605
+AR comparator behavioral E:/GitHub/PCFG/pcfg/comparator.vhd sub00/vhpl11 1479737606
+AR fulladder behavioral E:/GitHub/PCFG/pcfg/fullAdder.vhd sub00/vhpl09 1479737555
+AR halfadder behavioral E:/GitHub/PCFG/pcfg/halfAdder.vhd sub00/vhpl07 1479737536

@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date:    21:20:17 11/21/2016 
+-- Create Date:    22:47:36 11/21/2016 
 -- Design Name: 
--- Module Name:    m8bitRegister - Behavioral 
+-- Module Name:    shiftRegister8Bit - Behavioral 
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
@@ -31,35 +31,36 @@ use IEEE.NUMERIC_STD.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity m8bitRegister is
+entity shiftRegister8Bit is
     Port ( I : in  STD_LOGIC_VECTOR (7 downto 0);
-           O : out  STD_LOGIC_VECTOR (7 downto 0);
-           clr : in  STD_LOGIC;
            load_en : in  STD_LOGIC;
-           clk : in  STD_LOGIC);
-end m8bitRegister;
+           shift_en : in  STD_LOGIC;
+           clr : in  STD_LOGIC;
+           clk : in  STD_LOGIC;
+           O : out  STD_LOGIC);
+end shiftRegister8Bit;
 
-architecture Behavioral of m8bitRegister is
-	--declared signal
-	signal S: std_logic_vector(7 downto 0):="00000000";
+architecture Behavioral of shiftRegister8Bit is
+	shared variable S: std_logic_vector(7 downto 0):="00000000";
 begin
 
-main: process(clk,clr,I,load_en)
+main: process(I,load_en,shift_en,clr,clk)
+
 begin
 	-- this is to make the events synchronous
 	if clk'event and clk='1' then
 		if clr='1' then
-			S:= "00000000";
-			O <= S;
+			S := "00000000";
+			O <= S(7);
 		else
 			if load_en = '1' then
 				S:=I;
-			else
-				O <= S;
+			elsif shift_en = '1' then
+				O <= S(7);
+				S:= S(6 downto 0)& '0'; -- logical shift right 1 bit
 			end if ;
 		end if;
 	end if;
-	
 end process;
 
 end Behavioral;

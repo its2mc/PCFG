@@ -52,6 +52,7 @@ begin
 	if clk'event and clk='1' then
 		if clr='1' then
 			S:= "00000000";
+			O <= S(7);
 		else
 			if load_en = '1' then
 				S:=I;
