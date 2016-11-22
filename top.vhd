@@ -47,7 +47,7 @@ end component;
 component addr_decoder
 	 Port ( addr : in  STD_LOGIC_VECTOR (7 downto 0);
            pcs_addr : out  STD_LOGIC;
-           s_reset_addr : out  STD_LOGIC;
+           reset_addr : out  STD_LOGIC;
            pc_ram0_addr : out  STD_LOGIC;
            pc_ram1_addr : out  STD_LOGIC;
            data_transfer_addr : out  STD_LOGIC;
@@ -88,7 +88,7 @@ component mux_4 is
            din1 : in  STD_LOGIC_VECTOR (7 downto 0);
            din2 : in  STD_LOGIC_VECTOR (7 downto 0);
            din3 : in  STD_LOGIC_VECTOR (7 downto 0);
-           sel : in  STD_LOGIC_VECTOR (2 downto 0);
+           sel : in  STD_LOGIC_VECTOR (1 downto 0);
            dout : out  STD_LOGIC_VECTOR (7 downto 0));
 end component;
 
@@ -110,7 +110,7 @@ component control_signal_generator is
            da_start_addr : in  STD_LOGIC;
            da_stop_addr : in  STD_LOGIC;
            ad_ram0_addr : in  STD_LOGIC;
-           multiplication_addr : in  STD_LOGIC);
+           multiplication_addr : in  STD_LOGIC;
 			  cmd_data : in STD_LOGIC;
 			  latch_out_en : out STD_LOGIC;
 			  latch_in_en : out STD_LOGIC;
@@ -129,9 +129,10 @@ component control_signal_generator is
 			  ram1_ren : out STD_LOGIC;
 			  mux_in_sel : out STD_LOGIC;
 			  mux_out_sel : out STD_LOGIC;
-			  mux_trans_sel : out STD_LOGIC;
+			  mux_trans_sel : out STD_LOGIC_VECTOR(1 downto 0);
 			  data_in : in STD_LOGIC_VECTOR(7 downto 0);
-			  data_out : out STD_LOGIC_VECTOR(7 downto 0));
+			  data_out : out STD_LOGIC_VECTOR(7 downto 0);
+			  reset : out STD_LOGIC);
 end component;
 			  
 --
@@ -160,19 +161,20 @@ signal s_multiplication_addr : STD_LOGIC;
 signal s_latch_out_en : STD_LOGIC;
 signal s_latch_in_en : STD_LOGIC;
 signal s_buffer_en : STD_LOGIC;
-signal s_addr_ram0 : STD_LOGIC_VECTOR(7 downto 0);
-signal s_addr_ram1 : STD_LOGIC_VECTOR(7 downto 0);
+signal s_addr_ram0 : STD_LOGIC_VECTOR(10 downto 0) := (others => '0');
+signal s_addr_ram1 : STD_LOGIC_VECTOR(10 downto 0) := (others => '0');
 signal s_led : STD_LOGIC_VECTOR(7 downto 0);
 signal s_latch_adc_en : STD_LOGIC;
 signal s_latch_dac_en : STD_LOGIC;
 signal s_ram0_wen : STD_LOGIC_VECTOR(0 downto 0);
 signal s_ram0_ren : STD_LOGIC;
 signal s_ram1_wen : STD_LOGIC_VECTOR(0 downto 0);
-signal s_ram0_ren : STD_LOGIC;
+signal s_ram1_ren : STD_LOGIC;
 signal s_mux_in_sel : STD_LOGIC;
 signal s_mux_out_sel : STD_LOGIC;
 signal s_mux_trans_sel : STD_LOGIC_VECTOR(1 downto 0);
 signal s_multiplication_out : STD_LOGIC_VECTOR(7 downto 0);
+signal s_reset : STD_LOGIC;
 
 -- multiplexor
 signal s_mux_in_out : STD_LOGIC_VECTOR(7 downto 0);
@@ -195,12 +197,12 @@ signal s_filter_out : STD_LOGIC_VECTOR(7 downto 0);
 begin
  
 T_8254 : TOP_8254 
-port map ( clk0 => sw0,
-			  clk1 => sw1,
-			  clk2 => sw2,
-			  gate0 => s_8254_g0,
-			  gate1 => s_8254_g1,
-			  gate2 => s_8254_g2,
+port map ( clk0 => crystal_clk,
+			  clk1 => s_clock,
+			  clk2 => crystal_clk,
+			  gate0 => sw0,
+			  gate1 => sw1,
+			  gate2 => sw2,
 			  addr => addr(1 downto 0),
 			  cs => s_pcs_addr,
 			  wr => wen,
@@ -210,7 +212,7 @@ port map ( clk0 => sw0,
 			  out2 => s_8254_out2
 			  );
 
-TRI_STATE_BUFFER : tri_state_buffer
+TRI_BUFFER : tri_state_buffer
 port map ( din => s_latch_out_out(7 downto 0),
            dout => usb_data(7 downto 0),
            en => s_buffer_en
@@ -229,7 +231,7 @@ port map(  d => s_mux_out_out(7 downto 0),
 			  q => s_latch_in_out(7 downto 0),
            en => s_latch_out_en,
            clk => s_clock,
-           reset => NOT(s_reset_addr)
+           reset => s_reset
 			  );
 
 LATCH_DAC : latch
@@ -237,7 +239,7 @@ port map(  d => s_mux_out_out(7 downto 0),
 			  q => dac_data(7 downto 0),
            en => s_latch_dac_en,
            clk => s_clock,
-           reset => NOT(s_reset_addr)
+           reset => s_reset
 			  );
 
 LATCH_ADC : latch
@@ -245,7 +247,7 @@ port map(  d => adc_data(7 downto 0),
 			  q => s_latch_adc_out(7 downto 0),
            en => s_latch_adc_en,
            clk => s_clock,
-           reset => NOT(s_reset_addr)
+           reset => s_reset
 			  );
 			  
 MUX_IN : mux_2
@@ -274,7 +276,7 @@ port map(  din0 => s_filter_out(7 downto 0),
 ADDRESS_DECODER : addr_decoder
 port map(  addr => addr(7 downto 0),
            pcs_addr => s_pcs_addr,
-           s_reset_addr => s_reset_addr,
+           reset_addr => s_reset_addr,
            pc_ram0_addr => s_pc_ram0_addr,
            pc_ram1_addr => s_pc_ram1_addr,
            data_transfer_addr => s_data_transfer_addr,
@@ -288,11 +290,11 @@ RAM0 : dual_port_ram
 port map (  clka	=> s_clock,
 				ena => s_ram0_wen(0),
 				wea => s_ram0_wen(0 downto 0),
-				addra => s_addr_ram0,
+				addra => s_addr_ram0(10 downto 0),
 				dina => s_mux_in_out(7 downto 0),
 				clkb => s_clock,
 				enb => s_ram0_ren,
-				addrb => s_addr_ram0,
+				addrb => s_addr_ram0(10 downto 0),
 				doutb => s_ram0_out(7 downto 0)
          );
 			  
@@ -300,17 +302,17 @@ RAM1 : dual_port_ram
 port map (  clka	=> s_clock,
 				ena => s_ram1_wen(0),
 				wea => s_ram1_wen(0 downto 0),
-				addra => s_addr_ram1,
+				addra => s_addr_ram1(10 downto 0),
 				dina => s_mux_trans_out(7 downto 0),
 				clkb => s_clock,
 				enb => s_ram1_ren,
-				addrb => s_addr_ram1,
+				addrb => s_addr_ram1(10 downto 0),
 				doutb => s_ram1_out(7 downto 0)
          );
 			
-FILTER : filter
+FLTR : filter
 port map (  clk => s_clock,
-			   reset => NOT(s_reset_addr),
+			   reset => s_reset,
             din => s_ram0_out(7 downto 0),
             dout => s_filter_out(7 downto 0)
 		   );
@@ -319,8 +321,8 @@ CONTROLLER : control_signal_generator
 port map ( clk => s_clock,
            pcs_addr => s_pcs_addr,
            reset_addr => s_reset_addr,
-           pc_ram0_addr => s_ram0_addr,
-           pc_ram1_addr => s_ram1_addr,
+           pc_ram0_addr => s_pc_ram0_addr,
+           pc_ram1_addr => s_pc_ram1_addr,
            data_transfer_addr => s_data_transfer_addr,
            da_start_addr => s_da_start_addr,
            da_stop_addr => s_da_stop_addr,
@@ -340,13 +342,14 @@ port map ( clk => s_clock,
            latch_adc_en => s_latch_adc_en,
            ram0_wen => s_ram0_wen(0 downto 0),
            ram0_ren => s_ram0_ren,
-           ram1_wen => s_ram1_wen(1 downto 0),
+           ram1_wen => s_ram1_wen(0 downto 0),
            ram1_ren => s_ram1_ren,
            mux_in_sel => s_mux_in_sel,
            mux_out_sel => s_mux_out_sel,
-           mux_trans_sel => s_mux_trans_sel,
+           mux_trans_sel => s_mux_trans_sel(1 downto 0),
            data_in => s_mux_in_out(7 downto 0),
-           data_out => s_multiplication_out(7 downto 0)
+           data_out => s_multiplication_out(7 downto 0),
+			  reset => s_reset
 			  );
 			
 end behavioral;

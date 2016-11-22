@@ -6,7 +6,7 @@ entity mux_4 is
            din1 : in  STD_LOGIC_VECTOR (7 downto 0);
            din2 : in  STD_LOGIC_VECTOR (7 downto 0);
            din3 : in  STD_LOGIC_VECTOR (7 downto 0);
-           sel : in  STD_LOGIC_VECTOR (2 downto 0);
+           sel : in  STD_LOGIC_VECTOR (1 downto 0);
            dout : out  STD_LOGIC_VECTOR (7 downto 0));
 end mux_4;
 
