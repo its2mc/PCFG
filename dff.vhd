@@ -14,8 +14,12 @@ begin
 process(clk)
 begin
 
-if(rising_edge(clk)) then
-	dout <= din;
+if(reset = '0') then
+	q <= "00000000";
+else
+	if(rising_edge(clk)) then
+		dout <= din;
+	end if;
 end if;
 
 end process;
