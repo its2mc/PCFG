@@ -1,0 +1,5 @@
+set -tmpdir "C:/Users/Jihoon Park/Desktop/digital/term_project/xst/projnav.tmp"
+set -xsthdpdir "C:/Users/Jihoon Park/Desktop/digital/term_project/xst"
+elaborate
+-ifn filter.prj
+-ifmt mixed

@@ -1,0 +1,21 @@
+xst -intstyle ise -ifn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.xst" -ofn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.syr" 
+xst -intstyle ise -ifn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.xst" -ofn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.syr" 
+xst -intstyle ise -ifn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.xst" -ofn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.syr" 
+xst -intstyle ise -ifn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.xst" -ofn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.syr" 
+xst -intstyle ise -ifn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.xst" -ofn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.syr" 
+xst -intstyle ise -ifn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.xst" -ofn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.syr" 
+xst -intstyle ise -ifn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.xst" -ofn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.syr" 
+xst -intstyle ise -ifn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.xst" -ofn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.syr" 
+xst -intstyle ise -ifn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.xst" -ofn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.syr" 
+xst -intstyle ise -ifn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.xst" -ofn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.syr" 
+xst -intstyle ise -ifn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.xst" -ofn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.syr" 
+xst -intstyle ise -ifn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.xst" -ofn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.syr" 
+xst -intstyle ise -ifn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.xst" -ofn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.syr" 
+xst -intstyle ise -ifn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.xst" -ofn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.syr" 
+xst -intstyle ise -ifn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.xst" -ofn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.syr" 
+xst -intstyle ise -ifn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.xst" -ofn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -i -p xc3s50-pq208-5 "filter.ngc" filter.ngd  
+map -intstyle ise -p xc3s50-pq208-5 -cm area -ir off -pr off -c 100 -o filter_map.ncd filter.ngd filter.pcf 
+par -w -intstyle ise -ol high -t 1 filter_map.ncd filter.ncd filter.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml filter.twx filter.ncd -o filter.twr filter.pcf 
+xst -intstyle ise -ifn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.xst" -ofn "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.syr" 

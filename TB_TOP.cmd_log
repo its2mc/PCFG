@@ -1,0 +1,2 @@
+xst -intstyle ise -ifn "C:/Users/Jihoon Park/Desktop/digital/term_project/TB_TOP.xst" -ofn "C:/Users/Jihoon Park/Desktop/digital/term_project/TB_TOP.syr" 
+xst -intstyle ise -ifn "C:/Users/Jihoon Park/Desktop/digital/term_project/TB_TOP.xst" -ofn "C:/Users/Jihoon Park/Desktop/digital/term_project/TB_TOP.syr" 

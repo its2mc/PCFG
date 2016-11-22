@@ -1,0 +1,28 @@
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -o C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test_isim_beh.exe -prj C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test_beh.prj work.filter_test 
+ISim P.20131013 (signature 0x7708f090)
+Number of CPUs detected in this system: 2
+Turning on mult-threading, number of parallel sub-compilation jobs: 4 
+Determining compilation order of HDL files
+Parsing VHDL file "C:/Users/Jihoon Park/Desktop/digital/term_project/dff.vhd" into library work
+Parsing VHDL file "C:/Users/Jihoon Park/Desktop/digital/term_project/filter.vhd" into library work
+Parsing VHDL file "C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" into library work
+ERROR:HDLCompiler:806 - "C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 54: Syntax error near "clk".
+ERROR:HDLCompiler:806 - "C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 63: Syntax error near "clk".
+ERROR:HDLCompiler:304 - "C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 66: Character '2' is not in element type std_logic
+ERROR:HDLCompiler:806 - "C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 72: Syntax error near "clk".
+ERROR:HDLCompiler:304 - "C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 75: Character '3' is not in element type std_logic
+ERROR:HDLCompiler:806 - "C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 81: Syntax error near "clk".
+ERROR:HDLCompiler:304 - "C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 84: Character '4' is not in element type std_logic
+ERROR:HDLCompiler:806 - "C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 90: Syntax error near "clk".
+ERROR:HDLCompiler:304 - "C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 93: Character '5' is not in element type std_logic
+ERROR:HDLCompiler:806 - "C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 99: Syntax error near "clk".
+ERROR:HDLCompiler:304 - "C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 102: Character '6' is not in element type std_logic
+ERROR:HDLCompiler:806 - "C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 108: Syntax error near "clk".
+ERROR:HDLCompiler:304 - "C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 111: Character '7' is not in element type std_logic
+ERROR:HDLCompiler:806 - "C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 117: Syntax error near "clk".
+ERROR:HDLCompiler:304 - "C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 120: Character '8' is not in element type std_logic
+ERROR:HDLCompiler:806 - "C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 126: Syntax error near "clk".
+ERROR:HDLCompiler:304 - "C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 129: Character '9' is not in element type std_logic
+ERROR:HDLCompiler:806 - "C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 135: Syntax error near "clk".
+ERROR:HDLCompiler:806 - "C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 144: Syntax error near "clk".
+Sorry, too many errors..

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="error" file="HDLCompiler" num="304" delta="unknown" >"C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 67: Character &apos;<arg fmt="%c" index="1">2</arg>&apos; is not in element type <arg fmt="%s" index="2">std_logic</arg>
+</msg>
+
+<msg type="error" file="HDLCompiler" num="304" delta="unknown" >"C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 76: Character &apos;<arg fmt="%c" index="1">3</arg>&apos; is not in element type <arg fmt="%s" index="2">std_logic</arg>
+</msg>
+
+<msg type="error" file="HDLCompiler" num="304" delta="unknown" >"C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 85: Character &apos;<arg fmt="%c" index="1">4</arg>&apos; is not in element type <arg fmt="%s" index="2">std_logic</arg>
+</msg>
+
+<msg type="error" file="HDLCompiler" num="304" delta="unknown" >"C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 94: Character &apos;<arg fmt="%c" index="1">5</arg>&apos; is not in element type <arg fmt="%s" index="2">std_logic</arg>
+</msg>
+
+<msg type="error" file="HDLCompiler" num="304" delta="unknown" >"C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 103: Character &apos;<arg fmt="%c" index="1">6</arg>&apos; is not in element type <arg fmt="%s" index="2">std_logic</arg>
+</msg>
+
+<msg type="error" file="HDLCompiler" num="304" delta="unknown" >"C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 112: Character &apos;<arg fmt="%c" index="1">7</arg>&apos; is not in element type <arg fmt="%s" index="2">std_logic</arg>
+</msg>
+
+<msg type="error" file="HDLCompiler" num="304" delta="unknown" >"C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 121: Character &apos;<arg fmt="%c" index="1">8</arg>&apos; is not in element type <arg fmt="%s" index="2">std_logic</arg>
+</msg>
+
+<msg type="error" file="HDLCompiler" num="304" delta="unknown" >"C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 130: Character &apos;<arg fmt="%c" index="1">9</arg>&apos; is not in element type <arg fmt="%s" index="2">std_logic</arg>
+</msg>
+
+<msg type="error" file="HDLCompiler" num="304" delta="unknown" >"C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 157: Character &apos;<arg fmt="%c" index="1">2</arg>&apos; is not in element type <arg fmt="%s" index="2">std_logic</arg>
+</msg>
+
+<msg type="error" file="HDLCompiler" num="304" delta="unknown" >"C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 166: Character &apos;<arg fmt="%c" index="1">3</arg>&apos; is not in element type <arg fmt="%s" index="2">std_logic</arg>
+</msg>
+
+<msg type="error" file="HDLCompiler" num="304" delta="unknown" >"C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 175: Character &apos;<arg fmt="%c" index="1">4</arg>&apos; is not in element type <arg fmt="%s" index="2">std_logic</arg>
+</msg>
+
+<msg type="error" file="HDLCompiler" num="304" delta="unknown" >"C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 184: Character &apos;<arg fmt="%c" index="1">5</arg>&apos; is not in element type <arg fmt="%s" index="2">std_logic</arg>
+</msg>
+
+<msg type="error" file="HDLCompiler" num="304" delta="unknown" >"C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 193: Character &apos;<arg fmt="%c" index="1">6</arg>&apos; is not in element type <arg fmt="%s" index="2">std_logic</arg>
+</msg>
+
+<msg type="error" file="HDLCompiler" num="304" delta="unknown" >"C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 202: Character &apos;<arg fmt="%c" index="1">7</arg>&apos; is not in element type <arg fmt="%s" index="2">std_logic</arg>
+</msg>
+
+<msg type="error" file="HDLCompiler" num="304" delta="unknown" >"C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 211: Character &apos;<arg fmt="%c" index="1">8</arg>&apos; is not in element type <arg fmt="%s" index="2">std_logic</arg>
+</msg>
+
+<msg type="error" file="HDLCompiler" num="304" delta="unknown" >"C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 220: Character &apos;<arg fmt="%c" index="1">9</arg>&apos; is not in element type <arg fmt="%s" index="2">std_logic</arg>
+</msg>
+
+<msg type="error" file="HDLCompiler" num="304" delta="unknown" >"C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 229: Character &apos;<arg fmt="%c" index="1">2</arg>&apos; is not in element type <arg fmt="%s" index="2">std_logic</arg>
+</msg>
+
+<msg type="error" file="HDLCompiler" num="304" delta="unknown" >"C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 238: Character &apos;<arg fmt="%c" index="1">2</arg>&apos; is not in element type <arg fmt="%s" index="2">std_logic</arg>
+</msg>
+
+<msg type="error" file="HDLCompiler" num="304" delta="unknown" >"C:/Users/Jihoon Park/Desktop/digital/term_project/filter_test.vhd" Line 247: Character &apos;<arg fmt="%c" index="1">2</arg>&apos; is not in element type <arg fmt="%s" index="2">std_logic</arg>
+</msg>
+
+</messages>
+
