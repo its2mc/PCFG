@@ -16,17 +16,9 @@ process(en, clk, reset)
 begin
 
 if(reset = '0') then
-	out <= "00000000";
-else
-	if(rising_edge(clk)) then
-		if(en = '1') then
-			q <= d;
-		else
-			q <= q;
-		end if;
-	else
-		q <= q;
-	end if;
+	q <= "00000000";
+elsif(rising_edge(clk) AND (en = '1')) then
+	q <= d;
 end if;
 
 end process;
