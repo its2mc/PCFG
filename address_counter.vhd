@@ -10,21 +10,20 @@ entity address_counter is
 end address_counter;
 
 architecture Behavioral of address_counter is
-signal add : STD_LOGIC_VECTOR (7 downto 0);
+signal s_addr : STD_LOGIC_VECTOR (7 downto 0);
 begin
 
 process(clk)
 begin
 
 if (reset = '0') then
-	add <= "00000000";
+	s_addr <= s_addr - s_addr;
 elsif (rising_edge(clk) AND (en = '1')) then
-	add <= add + "00000001";
+	s_addr <= s_addr + 1;
 end if;
 
-addr <= add;
+addr <= s_addr;
 
 end process;
 
 end Behavioral;
-
