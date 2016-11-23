@@ -11,8 +11,8 @@ architecture Behavioral of tri_state_buffer is
 
 begin
 
-dout <= din when (en='0') else
-		  "ZZZZZZZZ" when (en='1') else
+dout <= din when (en='1') else
+		  "ZZZZZZZZ" when (en='0') else
 		  "ZZZZZZZZ";
 
 end Behavioral;

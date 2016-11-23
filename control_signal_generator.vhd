@@ -67,7 +67,6 @@ if (rising_edge(clk)) then
 			ram0_ren <= '0';
 			ram1_wen <= "0";
 			ram1_ren <= '0';
-			reset <= '0';
 			s_ram_addr <= "00000000";
 			s_ram0_addr <= "00000000";
 			s_ram1_addr <= "00000000";
@@ -80,6 +79,7 @@ if (rising_edge(clk)) then
 
 -- idle state
 		when IDLE =>
+			ready <= '0';
 			if ((reset_addr = '1') AND (cmd_data = '1')) then
 				state <= RESET0;
 			elsif ((pc_ram0_addr = '1') AND (cmd_data = '1')) then
@@ -135,7 +135,7 @@ if (rising_edge(clk)) then
 				addr_ram0 <= s_ram0_addr;
 				ready <= '0';
 				latch_in_en <= '0';
-				state <= IDLE;
+				state <= IDLE;                                     
 			end if;
 		
 		when PCR0RD0 =>
@@ -175,8 +175,6 @@ if (rising_edge(clk)) then
 			if ((reset_addr = '1') AND (cmd_data = '1')) then
 				state <= RESET0;
 			elsif (s_ram0_addr = s_ram_addr) then
-				s_ram0_addr <= s_ram0_addr + "00000001";
-				addr_ram0 <= s_ram0_addr;
 				ready <= '0';
 				latch_out_en <= '0';
 				tri_buffer_en <= '0';
@@ -192,7 +190,7 @@ if (rising_edge(clk)) then
 			if ((reset_addr = '1') AND (cmd_data = '1')) then
 				state <= RESET0;
 			elsif (wen = '1') then
-				mux_in_sel <= '1';
+				mux_in_sel <= '0';
 				mux_trans_sel <= "01";
 				latch_in_en <= '1';
 				state <= PCR1WR0;
@@ -220,6 +218,7 @@ if (rising_edge(clk)) then
 				ram1_wen <= "0";
 				s_ram1_addr <= s_ram1_addr + "00000001";
 				addr_ram1 <= s_ram1_addr;
+				latch_in_en <= '0';
 				state <= IDLE;
 			end if;
 		
@@ -260,8 +259,6 @@ if (rising_edge(clk)) then
 			if ((reset_addr = '1') AND (cmd_data = '1')) then
 				state <= RESET0;
 			elsif (s_ram1_addr = s_ram_addr) then
-				s_ram1_addr <= s_ram1_addr + "00000001";
-				addr_ram1 <= s_ram1_addr;
 				ready <= '0';
 				latch_out_en <= '0';
 				tri_buffer_en <= '0';
@@ -306,7 +303,7 @@ if (rising_edge(clk)) then
 			if ((reset_addr = '1') AND (cmd_data = '1')) then
 				state <= RESET0;
 			else
-				ram0_ren <= '0';
+				ram1_wen <= "0";
 				state <= DT5;
 			end if;
 			
@@ -314,22 +311,24 @@ if (rising_edge(clk)) then
 			if ((reset_addr = '1') AND (cmd_data = '1')) then
 				state <= RESET0;
 			else
-				ram1_wen <= "0";
+				ram0_ren <= '0';
 				state <= DT6;
 			end if;
 			
 		when DT6 =>
 			if ((reset_addr = '1') AND (cmd_data = '1')) then
 				state <= RESET0;
-			elsif (s_ram_addr = s_ram0_addr) then
-				state <= IDLE;
 			else
-				s_ram0_addr <= s_ram0_addr + "00000001";
-				s_ram1_addr <= s_ram1_addr + "00000001";
-				addr_ram0 <= s_ram0_addr;
-				addr_ram1 <= s_ram1_addr;
-				ram0_wen <= "1";
-				state <= DT3;
+				if (s_ram_addr = s_ram0_addr + "00000001") then
+					state <= IDLE;
+				else
+					s_ram0_addr <= s_ram0_addr + "00000001";
+					s_ram1_addr <= s_ram1_addr + "00000001";
+					addr_ram0 <= s_ram0_addr;
+					addr_ram1 <= s_ram1_addr;
+					ram0_ren <= '1';
+					state <= DT3;
+				end if;
 			end if;
 			
 -- DA mode
@@ -382,9 +381,10 @@ if (rising_edge(clk)) then
 			elsif ((da_stop_addr = '1') AND (cmd_data = '1')) then
 				state <= DASTOP0;
 			else
-				s_ram1_addr <= s_ram1_addr + "00000001";
-				if (s_ram1_addr = s_ram_addr) then
+				if (s_ram_addr = s_ram1_addr + "0000001") then
 					s_ram1_addr <= "00000000";
+				else
+					s_ram1_addr <= s_ram1_addr + "00000001";
 				end if;
 				addr_ram1 <= s_ram1_addr;
 				state <= DA2;

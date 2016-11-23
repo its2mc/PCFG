@@ -140,9 +140,7 @@ end component;
 --
 
 -- 8254
-signal s_8254_clk : std_logic;
 signal s_clock : std_logic;
-signal s_8254_addr : std_logic_vector(1 downto 0);
 signal s_8254_out1 : std_logic;
 signal s_8254_out2 : std_logic;
 
@@ -207,10 +205,11 @@ port map ( clk0 => crystal_clk,
 			  cs => s_pcs_addr,
 			  wr => wen,
 			  data => usb_data(7 downto 0),
-           out0 => s_clock,
+           out0 => s_8254_out1,
 		     out1 => s_8254_out1,
 			  out2 => s_8254_out2
 			  );
+s_clock <= crystal_clk;
 
 TRI_BUFFER : tri_state_buffer
 port map ( din => s_latch_out_out(7 downto 0),
