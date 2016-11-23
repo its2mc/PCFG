@@ -43,7 +43,7 @@ signal s_ram_addr : STD_LOGIC_VECTOR (7 downto 0);
 signal s_ram0_addr : STD_LOGIC_VECTOR (7 downto 0);
 signal s_ram1_addr : STD_LOGIC_VECTOR (7 downto 0);
 
-type state_name is (IDLE, RESET0, RESET1, PCR0, PCR0WR0, PCR0WR1, PCR0RD0, PCR0RD1, PCR0RD3, PCR0RD4, PCR0RD5, PCR1, PCR1WR0, PCR1WR1, PCR1RD0, PCR1RD1, PCR1RD3, PCR1RD4, PCR1RD5, DT0, DT1, DT3, DT4, DT5, DT6);
+type state_name is (IDLE, RESET0, RESET1, PCR0, PCR0WR0, PCR0WR1, PCR0RD0, PCR0RD1, PCR0RD3, PCR0RD4, PCR0RD5, PCR1, PCR1WR0, PCR1WR1, PCR1RD0, PCR1RD1, PCR1RD3, PCR1RD4, PCR1RD5, DT0, DT1, DT3, DT4, DT5, DT6, AD0, DA0, MULT0);
 signal state : state_name;
 
 begin
@@ -88,6 +88,14 @@ if (rising_edge(clk)) then
 				state <= PCR1;
 			elsif ((data_transfer_addr = '1') AND (cmd_data = '1')) then
 				state <= DT0;
+			elsif ((da_start_addr = '1') AND (cmd_data = '1')) then
+				state <= DA0;
+			elsif ((ad_ram0_addr = '1') AND (cmd_data = '1')) then
+				state <= AD0;
+			elsif ((multiplication_addr = '1') AND (cmd_data = '1')) then
+				state <= MULT0;
+			else
+				state <= IDLE;
 			end if;
 		
 -- pc mode (ram0)
@@ -309,6 +317,27 @@ if (rising_edge(clk)) then
 				s_ram1_addr <= s_ram1_addr + "00000001";
 				ram0_wen <= "1";
 				state <= DT3;
+			end if;
+			
+-- DA mode
+		when DA0 =>
+			if ((reset_addr = '1') AND (cmd_data = '1')) then
+				state <= RESET0;
+			else
+			end if;
+
+-- AD mode
+		when AD0 =>
+			if ((reset_addr = '1') AND (cmd_data = '1')) then
+				state <= RESET0;
+			else
+			end if;
+
+-- multiplication mode
+		when MULT0 =>
+			if ((reset_addr = '1') AND (cmd_data = '1')) then
+				state <= RESET0;
+			else
 			end if;
 	end case;
 end if;			
