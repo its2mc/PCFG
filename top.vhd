@@ -40,7 +40,7 @@ end component;
 
 component tri_state_buffer is
     Port ( din : in  STD_LOGIC_VECTOR (7 downto 0);
-           dout : in  STD_LOGIC_VECTOR (7 downto 0);
+           dout : out  STD_LOGIC_VECTOR (7 downto 0);
            en : in  STD_LOGIC);
 end component;
 
@@ -61,11 +61,11 @@ component dual_port_ram IS
    port ( clka	: in std_logic;
 			 ena: in std_logic;
 			 wea: in std_logic_vector(0 downto 0);
-			 addra: in std_logic_vector(10 downto 0);
+			 addra: in std_logic_vector(7 downto 0);
 			 dina: in std_logic_vector(7 downto 0);
 			 clkb: in std_logic;
 			 enb: in std_logic;
-			 addrb: in std_logic_vector(10 downto 0);
+			 addrb: in std_logic_vector(7 downto 0);
 			 doutb: out std_logic_vector(7 downto 0));
 end component;
 
@@ -161,8 +161,8 @@ signal s_multiplication_addr : STD_LOGIC;
 signal s_latch_out_en : STD_LOGIC;
 signal s_latch_in_en : STD_LOGIC;
 signal s_buffer_en : STD_LOGIC;
-signal s_addr_ram0 : STD_LOGIC_VECTOR(10 downto 0) := (others => '0');
-signal s_addr_ram1 : STD_LOGIC_VECTOR(10 downto 0) := (others => '0');
+signal s_addr_ram0 : STD_LOGIC_VECTOR(7 downto 0);
+signal s_addr_ram1 : STD_LOGIC_VECTOR(7 downto 0);
 signal s_led : STD_LOGIC_VECTOR(7 downto 0);
 signal s_latch_adc_en : STD_LOGIC;
 signal s_latch_dac_en : STD_LOGIC;
@@ -228,7 +228,7 @@ port map(  d => usb_data(7 downto 0),
 
 LATCH_OUT : latch
 port map(  d => s_mux_out_out(7 downto 0),
-			  q => s_latch_in_out(7 downto 0),
+			  q => s_latch_out_out(7 downto 0),
            en => s_latch_out_en,
            clk => s_clock,
            reset => s_reset
@@ -290,11 +290,11 @@ RAM0 : dual_port_ram
 port map (  clka	=> s_clock,
 				ena => s_ram0_wen(0),
 				wea => s_ram0_wen(0 downto 0),
-				addra => s_addr_ram0(10 downto 0),
+				addra => s_addr_ram0(7 downto 0),
 				dina => s_mux_in_out(7 downto 0),
 				clkb => s_clock,
 				enb => s_ram0_ren,
-				addrb => s_addr_ram0(10 downto 0),
+				addrb => s_addr_ram0(7 downto 0),
 				doutb => s_ram0_out(7 downto 0)
          );
 			  
@@ -302,11 +302,11 @@ RAM1 : dual_port_ram
 port map (  clka	=> s_clock,
 				ena => s_ram1_wen(0),
 				wea => s_ram1_wen(0 downto 0),
-				addra => s_addr_ram1(10 downto 0),
+				addra => s_addr_ram1(7 downto 0),
 				dina => s_mux_trans_out(7 downto 0),
 				clkb => s_clock,
 				enb => s_ram1_ren,
-				addrb => s_addr_ram1(10 downto 0),
+				addrb => s_addr_ram1(7 downto 0),
 				doutb => s_ram1_out(7 downto 0)
          );
 			
