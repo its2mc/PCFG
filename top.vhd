@@ -205,7 +205,7 @@ port map ( clk0 => crystal_clk,
 			  cs => s_pcs_addr,
 			  wr => wen,
 			  data => usb_data(7 downto 0),
-           out0 => s_8254_out1,
+           out0 => s_clock,
 		     out1 => s_8254_out1,
 			  out2 => s_8254_out2
 			  );
