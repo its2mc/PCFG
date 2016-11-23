@@ -351,5 +351,6 @@ port map ( clk => s_clock,
            data_out => s_multiplication_out(7 downto 0),
 			  reset => s_reset
 			  );
-			
+
+dac_clk <= s_clock;			
 end behavioral;

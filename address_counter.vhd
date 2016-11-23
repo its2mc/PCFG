@@ -16,10 +16,14 @@ begin
 process(clk)
 begin
 
-if (reset = '0') then
-	s_addr <= s_addr - s_addr;
-elsif (rising_edge(clk) AND (en = '1')) then
-	s_addr <= s_addr + 1;
+if (rising_edge(clk)) then
+	if (reset = '0') then
+		s_addr <= "00000000";
+	elsif ((en = '1') AND (s_addr < "11111111")) then
+		s_addr <= s_addr + 1;
+	elsif ((en = '1') AND (s_addr = "11111111")) then
+		s_addr <= "00000000";
+	end if;
 end if;
 
 addr <= s_addr;

@@ -18,34 +18,34 @@ architecture Behavioral of addr_decoder is
 
 begin
 
-pcs_addr <= '1' when (addr = "10001100") else
-				'1' when (addr = "10001101") else
-				'1' when (addr = "10001110") else
-				'1' when (addr = "10001111") else
+pcs_addr <= '1' when (addr = "01000000") else
+				'1' when (addr = "01000001") else
+				'1' when (addr = "01000010") else
+				'1' when (addr = "01000011") else
 				'0';
 
-reset_addr <= '1' when (addr = "10110100") else
+reset_addr <= '1' when (addr = "10000000") else
 					 '0';
 
-pc_ram0_addr <= '1' when (addr = "10110110") else
+pc_ram0_addr <= '1' when (addr = "10000010") else
 					 '0';
 
-pc_ram1_addr <= '1' when (addr = "10111000") else
+pc_ram1_addr <= '1' when (addr = "10000100") else
 					 '0';
 					 
-data_transfer_addr <= '1' when (addr = "10100000") else
+data_transfer_addr <= '1' when (addr = "01100000") else
 							 '0';
 							 
-da_start_addr <= '1' when (addr = "10100010") else
+da_start_addr <= '1' when (addr = "01100010") else
 					  '0';
 				
-da_stop_addr <= '1' when (addr = "10100100") else
+da_stop_addr <= '1' when (addr = "01100100") else
 					 '0';
 					 
-ad_ram0_addr <= '1' when (addr = "10100110") else
+ad_ram0_addr <= '1' when (addr = "01100110") else
 					 '0';
 					 
-multiplication_addr <= '1' when (addr = "10101010") else
+multiplication_addr <= '1' when (addr = "01110000") else
 							  '0';
 
 end Behavioral;
